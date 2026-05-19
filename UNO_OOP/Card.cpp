@@ -1,3 +1,5 @@
+#include <string>
+using namespace std;
 #include "Card.h"
 
 Card::Card() : color('\0'), value(0) {}
@@ -36,3 +38,4 @@ string Card::getValueDisplay() const {
     if (value >= 0 && value <= 9) return to_string(value);
     return "";
 }
+

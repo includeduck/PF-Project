@@ -1,7 +1,7 @@
+#include <Windows.h>
 #include "ConsoleRenderer.h"
 #include <iostream>
 #include <iomanip>
-using namespace std;
 
 ConsoleRenderer::ConsoleRenderer() {}
 
@@ -14,20 +14,20 @@ void ConsoleRenderer::resetColor() {
     setColor(CLR_WHITE, CLR_BLACK);
 }
 
-void ConsoleRenderer::printColoredText(const string& text, Card card) {
+void ConsoleRenderer::printColoredText(const std::string& text, Card card) {
     char c = card.getColor();
     if (c == 'R') setColor(CLR_BLACK, CLR_RED);
     else if (c == 'G') setColor(CLR_BLACK, CLR_GREEN);
     else if (c == 'B') setColor(CLR_WHITE, CLR_BLUE);
     else if (c == 'Y') setColor(CLR_BLACK, CLR_YELLOW);
     else if (c == 'W') setColor(CLR_BLACK, CLR_WHITE);
-    cout << text;
+    std::cout << text;
     resetColor();
 }
 
-void ConsoleRenderer::printBlackText(const string& text, Card card) {
+void ConsoleRenderer::printBlackText(const std::string& text, Card card) {
     if (card.isEmpty()) setColor(CLR_WHITE, CLR_BLACK);
-    cout << text;
+    std::cout << text;
     resetColor();
 }
 
@@ -88,14 +88,14 @@ void ConsoleRenderer::printPlayerHand(Player& player) {
                 if (row == 5) {
                     // Print card label
                     if (j < 9) {
-                        cout << " Card 0" << j + 1;
+                        std::cout << " Card 0" << j + 1;
                     } else if (j > 99) {
-                        cout << " Card" << j + 1;
+                        std::cout << " Card" << j + 1;
                     } else {
-                        cout << " Card " << j + 1;
+                        std::cout << " Card " << j + 1;
                     }
                 } else {
-                    cout << " ";
+                    std::cout << " ";
                 }
 
                 if (!card.isEmpty()) {
@@ -104,42 +104,44 @@ void ConsoleRenderer::printPlayerHand(Player& player) {
                     printBlackCardRow(card, row);
                 }
             }
-            cout << endl;
+            std::cout << std::endl;
         }
     }
 }
 
 void ConsoleRenderer::printBoard(Player& playerOne, Player& playerTwo, Card topCard) {
-    cout << "Player One's Hand:" << endl;
+    std::cout << "Player One's Hand:" << std::endl;
     printPlayerHand(playerOne);
 
-    cout << endl;
-    cout << "Top Card: " << endl;
+    std::cout << std::endl;
+    std::cout << "Top Card: " << std::endl;
     for (int row = 0; row < 5; row++) {
         printCardRow(topCard, row);
-        cout << endl;
+        std::cout << std::endl;
     }
-    cout << endl;
+    std::cout << std::endl;
 
-    cout << "Player Two's Hand:" << endl;
+    std::cout << "Player Two's Hand:" << std::endl;
     printPlayerHand(playerTwo);
 }
 
 void ConsoleRenderer::printMenu() {
-    cout << "<======================> " << endl;
-    cout << "<----Two-Player-UNO----> " << endl;
-    cout << "<======================> " << endl;
-    cout << endl;
-    cout << "1. Play" << endl;
-    cout << "2. Exit UNO" << endl;
-    cout << "Enter choice: ";
+    std::cout << "<======================> " << std::endl;
+    std::cout << "<----Two-Player-UNO----> " << std::endl;
+    std::cout << "<======================> " << std::endl;
+    std::cout << std::endl;
+    std::cout << "1. Play" << std::endl;
+    std::cout << "2. Exit UNO" << std::endl;
+    std::cout << "Enter choice: ";
 }
 
 void ConsoleRenderer::printWinner(Player& winner, int moveCount) {
-    cout << winner.getName() << " wins! The game had a total of "
-         << moveCount << " moves!" << endl;
+    std::cout << winner.getName() << " wins! The game had a total of "
+         << moveCount << " moves!" << std::endl;
 }
 
 void ConsoleRenderer::clearScreen() {
     system("cls");
 }
+
+

@@ -4,7 +4,6 @@
 #include "Card.h"
 #include "Player.h"
 #include <string>
-using namespace std;
 
 class GameRules {
 public:
@@ -17,3 +16,5 @@ public:
 };
 
 #endif
+
+

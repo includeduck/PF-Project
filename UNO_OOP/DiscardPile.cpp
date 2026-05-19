@@ -1,3 +1,4 @@
+using namespace std;
 #include "DiscardPile.h"
 
 DiscardPile::DiscardPile() : topIndex(0) {
@@ -34,3 +35,4 @@ void DiscardPile::reset() {
     }
     topIndex = 0;
 }
+

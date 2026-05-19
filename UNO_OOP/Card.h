@@ -2,7 +2,6 @@
 #define CARD_H
 
 #include <string>
-using namespace std;
 
 // Card value constants matching original encoding
 const int CARD_SKIP = 10;
@@ -35,8 +34,10 @@ public:
     void clear();
 
     // Display helpers
-    string getColorInitial() const;
-    string getValueDisplay() const;
+    std::string getColorInitial() const;
+    std::string getValueDisplay() const;
 };
 
 #endif
+
+

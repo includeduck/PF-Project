@@ -3,18 +3,17 @@
 
 #include "Card.h"
 #include <string>
-using namespace std;
 
 class Player {
 private:
     static const int MAX_HAND_SIZE = 106;
     Card hand[MAX_HAND_SIZE];
-    string name;
+    std::string name;
     int playerNumber; // 1 or 2
 
 public:
     Player();
-    Player(const string& name, int number);
+    Player(const std::string& name, int number);
 
     // Hand management
     void addCard(Card card);
@@ -25,7 +24,7 @@ public:
     bool isHandFull() const;
 
     // Getters
-    string getName() const;
+    std::string getName() const;
     int getPlayerNumber() const;
 
     // Game logic helper
@@ -35,3 +34,5 @@ public:
 };
 
 #endif
+
+

@@ -4,8 +4,6 @@
 #include "Card.h"
 #include "Player.h"
 #include <string>
-#include <Windows.h>
-using namespace std;
 
 class ConsoleRenderer {
 private:
@@ -21,8 +19,8 @@ private:
 
     void setColor(int textColor, int bgColor);
     void resetColor();
-    void printColoredText(const string& text, Card card);
-    void printBlackText(const string& text, Card card);
+    void printColoredText(const std::string& text, Card card);
+    void printBlackText(const std::string& text, Card card);
     void printCardRow(Card card, int row);
     void printBlackCardRow(Card card, int row);
 
@@ -40,3 +38,6 @@ public:
 };
 
 #endif
+
+
+
